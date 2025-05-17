@@ -1,41 +1,8 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: 0 0% 7%;
-  --foreground: 0 0% 98%;
-  
-  --card: 0 0% 10%;
-  --card-foreground: 0 0% 98%;
-  
-  --popover: 0 0% 7%;
-  --popover-foreground: 0 0% 98%;
-  
-  --primary: 0 80% 57%;
-  --primary-foreground: 0 0% 100%;
-  
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 98%;
-  
-  --muted: 0 0% 16%;
-  --muted-foreground: 0 0% 70%;
-  
-  --accent: 0 80% 57%;
-  --accent-foreground: 0 0% 100%;
-  
-  --destructive: 0 62% 30%;
-  --destructive-foreground: 0 0% 98%;
-  
-  --border: 0 0% 15%;
-  --input: 0 0% 15%;
-  --ring: 0 80% 57%;
-  
-  --radius: 0.5rem;
-}
 
 * {
   @apply border-border;
@@ -43,28 +10,79 @@
 
 body {
   @apply bg-background text-foreground font-body;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
 }
 
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 80% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 80% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 80% 57%;
+
+    --radius: 0.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-semibold;
   }
-  
+
   h1 {
     @apply text-4xl sm:text-5xl md:text-6xl;
   }
-  
+
   h2 {
     @apply text-3xl sm:text-4xl;
   }
-  
+
   h3 {
     @apply text-2xl sm:text-3xl;
   }
-  
+
   p {
     @apply leading-relaxed;
+  }
+
+  .section-padding {
+    @apply py-16 px-4;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-center relative;
+    &::after {
+      content: "";
+      @apply absolute left-1/2 -bottom-4 w-16 h-1 bg-[#e74c3c] -translate-x-1/2;
+    }
   }
 }
 
@@ -72,24 +90,16 @@ body {
   .animated-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
   }
-  
+
   .animated-shape {
     @apply absolute border border-primary opacity-70 transition-all duration-700;
     animation: float 8s ease-in-out infinite;
   }
-  
-  .section-heading {
-    @apply mb-8 text-2xl sm:text-3xl md:text-4xl font-bold relative inline-block;
-  }
-  
-  .section-heading::after {
-    content: '';
-    @apply absolute -bottom-2 left-0 h-1 w-16 bg-primary;
-  }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -132,8 +142,4 @@ body {
 .card-image {
   height: 200px;
   object-fit: cover;
-}
-
-.section-padding {
-  @apply py-14 md:py-20;
 }
